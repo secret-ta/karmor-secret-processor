@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package msg;
+option go_package = "./protobuf";
+
+service Processor {
+    rpc Process(Request) returns (Response){};
+}
+
+message Request {
+    string namespace = 1;
+    string deploymentName = 2;
+    map<string, string> labels = 3;
+    string secretPath = 4;
+    string action = 5;
+}
+
+message Response {
+}
